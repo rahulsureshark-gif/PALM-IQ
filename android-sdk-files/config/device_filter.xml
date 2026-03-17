@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Palm Vein Scanner (Sonix Camera) -->
+    <!-- VID 0x0C45 = 3141 decimal -->
+    <!-- PID 0x6366 = 25446 decimal (original/older firmware) -->
+    <!-- PID 0x636B = 25451 decimal (newer firmware variant) -->
+    <usb-device vendor-id="3141" product-id="25446" />
+    <usb-device vendor-id="3141" product-id="25451" />
+</resources>

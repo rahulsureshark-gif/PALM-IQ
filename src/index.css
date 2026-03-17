@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Palm IQ Brand Colors - PhonePe inspired Purple theme */
+    --background: 270 25% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 270 20% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 270 20% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Vibrant Purple (PhonePe style) */
+    --primary: 265 85% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Dark Purple */
+    --secondary: 270 25% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 270 20% 14%;
+    --muted-foreground: 270 10% 55%;
+
+    /* Accent - Bright Magenta/Pink */
+    --accent: 320 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 270 20% 16%;
+    --input: 270 20% 16%;
+    --ring: 265 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom Palm IQ tokens */
+    --palm-gradient-start: 265 85% 55%;
+    --palm-gradient-end: 320 85% 60%;
+    --palm-success: 152 70% 50%;
+    --palm-warning: 38 92% 50%;
+    --palm-health: 340 80% 55%;
+    --palm-info: 200 85% 55%;
+    --palm-glow: 0 0 30px hsl(265 85% 55% / 0.5);
+    --palm-glow-strong: 0 0 60px hsl(265 85% 55% / 0.7);
+    
+    /* Glass effect */
+    --glass-bg: 270 20% 8% / 0.8;
+    --glass-border: 270 20% 25% / 0.5;
+
+    --sidebar-background: 270 25% 6%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 265 85% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 25% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 270 20% 16%;
+    --sidebar-ring: 265 85% 55%;
+
+    /* Chart colors */
+    --chart-1: 265 85% 55%;
+    --chart-2: 320 85% 60%;
+    --chart-3: 152 70% 50%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 200 85% 55%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 270 25% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 270 25% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 25% 10%;
+    --primary: 265 85% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 15% 95%;
+    --secondary-foreground: 270 25% 10%;
+    --muted: 270 15% 95%;
+    --muted-foreground: 270 10% 40%;
+    --accent: 320 85% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 15% 90%;
+    --input: 270 15% 90%;
+    --ring: 265 85% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-white/10 shadow-xl;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Palm glow effect */
+  .palm-glow {
+    box-shadow: var(--palm-glow);
+  }
+
+  .palm-glow-strong {
+    box-shadow: var(--palm-glow-strong);
+  }
+
+  /* Primary gradient button */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-primary to-accent text-white font-semibold;
+    @apply hover:shadow-glow transition-all duration-300;
+  }
+
+  /* Animated gradient border */
+  .gradient-border {
+    position: relative;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* PhonePe style card */
+  .phonepe-card {
+    @apply bg-gradient-to-br from-primary via-primary/90 to-accent;
+    @apply rounded-2xl p-5 text-white shadow-glow;
+  }
+
+  /* Quick action button */
+  .quick-action {
+    @apply flex flex-col items-center gap-2 p-3;
+    @apply active:scale-95 transition-transform duration-150;
+  }
+
+  .quick-action-icon {
+    @apply w-14 h-14 rounded-2xl flex items-center justify-center;
+    @apply bg-secondary/80 text-primary shadow-lg;
+  }
+
+  /* Transaction list item */
+  .transaction-item {
+    @apply flex items-center gap-4 p-4 rounded-2xl;
+    @apply bg-secondary/50 hover:bg-secondary/80 transition-colors;
+    @apply active:scale-[0.98] transform duration-150;
+  }
+
+  /* Pulse animation for palm scanner */
+  .pulse-ring {
+    animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.4;
+    }
+    100% {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+  }
+
+  /* Shimmer loading effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--secondary)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Success checkmark animation */
+  .success-check {
+    animation: success-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @keyframes success-pop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Terminal keypad button */
+  .keypad-btn {
+    @apply flex items-center justify-center text-2xl font-semibold 
+           bg-secondary hover:bg-secondary/80 active:scale-95
+           rounded-xl h-16 transition-all duration-150;
+  }
+
+  /* Status badge */
+  .status-badge {
+    @apply px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .status-badge-success {
+    @apply bg-palm-success/20 text-palm-success;
+  }
+
+  .status-badge-warning {
+    @apply bg-palm-warning/20 text-palm-warning;
+  }
+
+  .status-badge-error {
+    @apply bg-destructive/20 text-destructive;
+  }
+
+  /* Health metric trend */
+  .trend-up {
+    @apply text-palm-warning;
+  }
+  
+  .trend-down {
+    @apply text-palm-success;
+  }
+  
+  .trend-stable {
+    @apply text-palm-info;
+  }
+
+  /* Bottom sheet */
+  .bottom-sheet {
+    @apply fixed inset-x-0 bottom-0 z-50;
+    @apply bg-card rounded-t-3xl shadow-2xl;
+    @apply border-t border-border;
+  }
+
+  /* Notification badge */
+  .notification-badge {
+    @apply absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center;
+    @apply text-xs font-bold bg-destructive text-white rounded-full;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Safe area padding for mobile */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+  
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 20px);
+  }
+
+  /* Text shadow */
+  .text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Backdrop blur variants */
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+}
