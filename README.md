@@ -1,6 +1,3 @@
-# PALM-IQ
-Palm IQ: Next-Gen Contactless Palm Vein Biometric Payment System
-<<<<<<< HEAD
 # Palm IQ - Secure Contactless Payments
 
 Palm IQ is a biometric payment application using palm vein authentication technology for secure, contactless transactions.
@@ -58,7 +55,3 @@ The app supports real palm vein scanning hardware via USB-C OTG connection. See:
 ## License
 
 Proprietary - All rights reserved.
-=======
-# PALM-IQ
-Palm IQ: Next-Gen Contactless Palm Vein Biometric Payment System
->>>>>>> d893f5c6074de93878f0e3bce5fb1c768338c049
