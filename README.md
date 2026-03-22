@@ -51,7 +51,10 @@ npx cap open android
 The app supports real palm vein scanning hardware via USB-C OTG connection. See:
 - [PALM_SDK_INTEGRATION_GUIDE.md](./PALM_SDK_INTEGRATION_GUIDE.md)
 - [ANDROID_NATIVE_AUTOFIX.md](./ANDROID_NATIVE_AUTOFIX.md)
-
+##
+APP 
+SING UP BY USEING UR EMAIL ID AND PASSWARD
+SIGN IN WITH SAME EMAIL ID AND PASSWARD
 ## License
 
 Proprietary - All rights reserved.
